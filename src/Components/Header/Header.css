@@ -1,0 +1,15 @@
+ul a.active{
+    color: #23BE0A;
+    border: 1px solid #23BE0A;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.navbar{
+    font-family: "Work Sans", sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
