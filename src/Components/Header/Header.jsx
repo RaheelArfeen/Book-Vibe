@@ -6,8 +6,8 @@ const Header = () => {
 
     const links = <>
         <NavLink to="/">Home</NavLink>
-        <NavLink>Listed Books</NavLink>
-        <NavLink>Pages to Read</NavLink>
+        <NavLink to="/listedBooks">Listed Books</NavLink>
+        <NavLink to="/pagesToRead">Pages to Read</NavLink>
     </>
   return (
     <div>
@@ -24,7 +24,7 @@ const Header = () => {
           <a className="text-[28px] font-bold">Book Vibe</a>
         </div>
         <div className="hidden lg:flex">
-          <ul className="menu menu-horizontal flex gap-4">
+          <ul className="menu menu-horizontal flex gap-4 items-center">
             {links}
           </ul>
         </div>

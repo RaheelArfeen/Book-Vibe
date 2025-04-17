@@ -8,6 +8,15 @@ ul a.active{
     cursor: pointer;
 }
 
+ul a{
+    font-size: 14px;
+    cursor: pointer;
+    color: #13131380;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+}
+
 .navbar{
     font-family: "Work Sans", sans-serif;
 }
