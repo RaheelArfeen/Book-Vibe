@@ -12,9 +12,13 @@ function getWishBook() {
     const wishBookData = getWishBook();
   
     if (wishBookData.includes(id)) {
-      alert('bhai ei id already exist');
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "You have this item already in you wish list"
+      });
     } else {
-        wishBookData.push(id);
+      wishBookData.push(id);
       const data = JSON.stringify(wishBookData);
       localStorage.setItem("wishlist", data);
     }

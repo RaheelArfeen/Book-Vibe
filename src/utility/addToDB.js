@@ -12,7 +12,11 @@ function addToStoreDB(id) {
   const storedBookData = getStoredBook();
 
   if (storedBookData.includes(id)) {
-    alert("bhai ei id already exist");
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "You have this item already in you read list"
+    });
   } else {
     storedBookData.push(id);
     const data = JSON.stringify(storedBookData);

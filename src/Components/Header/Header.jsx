@@ -1,38 +1,71 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router";
-import "./Header.css"
+import "./Header.css";
 
 const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
 
-    const links = <>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/readList">Listed Books</NavLink>
-        <NavLink to="/pagesToRead">Pages to Read</NavLink>
+  const navLinks = (
+    <>
+      <NavLink to="/" className="block px-4 py-2 hover:text-[#23BE0A]">Home</NavLink>
+      <NavLink to="/readList" className="block px-4 py-2 hover:text-[#23BE0A]">Listed Books</NavLink>
+      <NavLink to="/pagesToRead" className="block px-4 py-2 hover:text-[#23BE0A]">Pages to Read</NavLink>
     </>
+  );
+
+  const authButtons = (
+    <>
+      <button className="w-full text-base font-medium py-2 px-4 bg-[#23BE0A] text-white rounded-lg">
+        Sign In
+      </button>
+      <button className="w-full text-base font-medium py-2 px-4 bg-[#59C6D2] text-white rounded-lg">
+        Sign Up
+      </button>
+    </>
+  );
+
   return (
-    <div>
-      <div className="navbar md:container mx-auto py-[30px] flex justify-between items-center">
-        <div>
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">{" "}<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16"/>{" "}</svg>
-            </div>
-            <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 shadow-md flex flex-col gap-3">
-              {links}
-            </ul>
-          </div>
-          <a className="text-[28px] font-bold">Book Vibe</a>
-        </div>
-        <div className="hidden lg:flex">
-          <ul className="menu menu-horizontal flex gap-4 items-center">
-            {links}
-          </ul>
-        </div>
+    <div className="w-full bg-white  md:container mx-auto">
+      <div className="md:container mx-auto py-6 px-4 flex justify-between items-center">
+        {/* Left side - Logo & Hamburger */}
         <div className="flex items-center gap-4">
-            <button className="text-base cursor-pointer font-medium py-2 px-6 bg-[#23BE0A] text-white rounded-lg">Sign In</button>
-            <button className="text-base cursor-pointer font-medium py-2 px-6 bg-[#59C6D2] text-white rounded-lg">Sign Up</button>
+          <div className="lg:hidden">
+            <button onClick={() => setMenuOpen(!menuOpen)} className="focus:outline-none">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+          <a className="text-2xl font-bold">Book Vibe</a>
+        </div>
+
+        {/* Desktop nav links */}
+        <div className="nav hidden lg:flex gap-6 items-center">
+          {navLinks}
+        </div>
+
+        {/* Desktop Auth Buttons */}
+        <div className="hidden lg:flex items-center gap-4">
+          <button className="text-base font-medium py-2 px-6 bg-[#23BE0A] text-white rounded-lg">
+            Sign In
+          </button>
+          <button className="text-base font-medium py-2 px-6 bg-[#59C6D2] text-white rounded-lg">
+            Sign Up
+          </button>
         </div>
       </div>
+
+      {/* Mobile Dropdown Menu */}
+      {menuOpen && (
+        <div className="nav lg:hidden px-4 pb-4 flex flex-col gap-2">
+          {navLinks}
+          <div className="mt-2 flex flex-col gap-2">
+            {authButtons}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
