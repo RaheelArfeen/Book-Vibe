@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useLoaderData, useParams } from "react-router";
 import { addToStoreDB } from "../../utility/addToDB";
+import { addToWishDB } from "../../utility/addToWish";
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -88,7 +89,7 @@ const BookDetails = () => {
                 <button onClick={() => addToStoreDB(id)} className="px-6 py-2 bg-white border-2 border-gray-900 text-gray-900 cursor-pointer rounded-md font-semibold hover:bg-gray-100 transition-colors">
                   Mark as Read
                 </button>
-                <button className="px-6 py-2 bg-sky-400 text-white rounded-md font-semibold hover:bg-sky-500 transition-colors cursor-pointer">
+                <button onClick={() => addToWishDB(id)} className="px-6 py-2 bg-sky-400 text-white rounded-md font-semibold hover:bg-sky-500 transition-colors cursor-pointer">
                   Add to Wishlist
                 </button>
                 <a href="/" className="px-6 py-2 bg-green-500 text-white rounded-md font-semibold hover:bg-green-600 cursor-pointer transition-colors">
