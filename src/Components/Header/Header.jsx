@@ -7,25 +7,25 @@ const Header = () => {
 
   const navLinks = (
     <>
-      <NavLink to="/" className="block px-4 py-2 hover:text-[#23BE0A]">Home</NavLink>
-      <NavLink to="/readList" className="block px-4 py-2 hover:text-[#23BE0A]">Listed Books</NavLink>
-      <NavLink to="/pagesToRead" className="block px-4 py-2 hover:text-[#23BE0A]">Pages to Read</NavLink>
+      <NavLink to="/" className="block px-4 py-2 hover:text-[#23BE0A] w-fit">Home</NavLink>
+      <NavLink to="/readList" className="block px-4 py-2 hover:text-[#23BE0A] w-fit">Listed Books</NavLink>
+      <NavLink to="/pagesToRead" className="block px-4 py-2 hover:text-[#23BE0A] w-fit">Pages to Read</NavLink>
     </>
   );
 
   const authButtons = (
     <>
-      <button className="w-full text-base font-medium py-2 px-4 bg-[#23BE0A] text-white rounded-lg">
+      <button className="w-fit text-base font-medium py-2 px-4 bg-[#23BE0A] text-white rounded-lg">
         Sign In
       </button>
-      <button className="w-full text-base font-medium py-2 px-4 bg-[#59C6D2] text-white rounded-lg">
+      <button className="w-fit text-base font-medium py-2 px-4 bg-[#59C6D2] text-white rounded-lg">
         Sign Up
       </button>
     </>
   );
 
   return (
-    <div className="w-full bg-white  md:container mx-auto">
+    <div className="w-full bg-[#ffffff] mx-auto">
       <div className="md:container mx-auto py-6 px-4 flex justify-between items-center">
         {/* Left side - Logo & Hamburger */}
         <div className="flex items-center gap-4">
@@ -42,16 +42,16 @@ const Header = () => {
         </div>
 
         {/* Desktop nav links */}
-        <div className="nav hidden lg:flex gap-6 items-center">
+        <div className="nav hidden md:flex gap-6 items-center">
           {navLinks}
         </div>
 
         {/* Desktop Auth Buttons */}
         <div className="hidden lg:flex items-center gap-4">
-          <button className="text-base font-medium py-2 px-6 bg-[#23BE0A] text-white rounded-lg">
+          <button className="text-base w-fit font-medium py-2 px-6 bg-[#23BE0A] text-white rounded-lg">
             Sign In
           </button>
-          <button className="text-base font-medium py-2 px-6 bg-[#59C6D2] text-white rounded-lg">
+          <button className="text-base w-fit font-medium py-2 px-6 bg-[#59C6D2] text-white rounded-lg">
             Sign Up
           </button>
         </div>
@@ -61,7 +61,7 @@ const Header = () => {
       {menuOpen && (
         <div className="nav lg:hidden px-4 pb-4 flex flex-col gap-2">
           {navLinks}
-          <div className="mt-2 flex flex-col gap-2">
+          <div className="mt-2 flex gap-2">
             {authButtons}
           </div>
         </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 const Banner = () => {
   return (
@@ -19,9 +20,9 @@ const Banner = () => {
       entertain. Perfect for cozy weekends or thoughtful gifts.
     </p>
 
-    <button className="text-lg sm:text-xl md:text-2xl font-bold py-3 sm:py-4 px-6 sm:px-8 bg-sky-500 rounded-xl text-white hover:bg-sky-600 transition duration-300 cursor-pointer">
+    <Link to="/ReadList" className="text-lg sm:text-xl md:text-2xl font-bold py-3 sm:py-4 px-6 sm:px-8 bg-sky-500 rounded-xl text-white hover:bg-sky-600 transition duration-300 cursor-pointer">
       View The List
-    </button>
+    </Link>
 
     {/* Small Book Thumbnails */}
     <div className="flex justify-center lg:justify-start gap-4 mt-10">

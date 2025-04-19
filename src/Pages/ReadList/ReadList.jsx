@@ -66,7 +66,7 @@ const ReadList = () => {
     }, [data]);
 
     return (
-        <div className="md:container mx-auto md:p-0 p-4">
+        <div className="md:container mx-auto md:p-0 p-4 grow">
             <div className="text-center bg-[#f3f3f3] rounded-2xl text-5xl font-bold py-14 mb-6">
                 <h1>Books</h1>
             </div>
