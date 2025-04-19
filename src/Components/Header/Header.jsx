@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router";
 import "./Header.css";
+import SignIn from "../SignIn/SignIn"; // Adjust the path to where your SignIn component is located
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showSignIn, setShowSignIn] = useState(false);  // State to toggle Sign In visibility
+  const [showSignUp, setShowSignUp] = useState(false);  // State to toggle Sign Up visibility
 
   const navLinks = (
     <>
@@ -15,10 +18,22 @@ const Header = () => {
 
   const authButtons = (
     <>
-      <button className="w-fit text-base font-medium py-2 px-4 bg-[#23BE0A] text-white rounded-lg">
+      <button
+        onClick={() => {
+          setShowSignIn(true);
+          setShowSignUp(false);
+        }}
+        className="w-fit text-base font-medium py-2 px-4 bg-[#23BE0A] text-white rounded-lg"
+      >
         Sign In
       </button>
-      <button className="w-fit text-base font-medium py-2 px-4 bg-[#59C6D2] text-white rounded-lg">
+      <button
+        onClick={() => {
+          setShowSignUp(true);
+          setShowSignIn(false);
+        }}
+        className="w-fit text-base font-medium py-2 px-4 bg-[#59C6D2] text-white rounded-lg"
+      >
         Sign Up
       </button>
     </>
@@ -48,12 +63,7 @@ const Header = () => {
 
         {/* Desktop Auth Buttons */}
         <div className="hidden lg:flex items-center gap-4">
-          <button className="text-base w-fit font-medium py-2 px-6 bg-[#23BE0A] text-white rounded-lg">
-            Sign In
-          </button>
-          <button className="text-base w-fit font-medium py-2 px-6 bg-[#59C6D2] text-white rounded-lg">
-            Sign Up
-          </button>
+          {authButtons}
         </div>
       </div>
 
@@ -70,6 +80,10 @@ const Header = () => {
           </div>
         </div>
       )}
+
+      {/* Show the Sign In or Sign Up Form based on button click */}
+      {showSignIn && <SignIn />}
+      {showSignUp && <SignIn isSignUp={true} />} {/* Pass a prop to switch between SignIn and SignUp views */}
     </div>
   );
 };
