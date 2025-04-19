@@ -25,7 +25,7 @@ const Header = () => {
   );
 
   return (
-    <div className="w-full bg-[#ffffff] mx-auto">
+    <div className="w-full bg-[#ffffff] mx-auto mb-6">
       <div className="md:container mx-auto py-6 px-4 flex justify-between items-center">
         {/* Left side - Logo & Hamburger */}
         <div className="flex items-center gap-4">
@@ -60,9 +60,13 @@ const Header = () => {
       {/* Mobile Dropdown Menu */}
       {menuOpen && (
         <div className="nav lg:hidden px-4 pb-4 flex flex-col gap-2">
-          {navLinks}
-          <div className="mt-2 flex gap-2">
-            {authButtons}
+          <div className="shadow p-6 w-fit">
+            <div className="md:hidden flex flex-col gap-2">
+              {navLinks}
+            </div>
+            <div className="md:mt-0 mt-2 flex gap-2">
+              {authButtons}
+            </div>
           </div>
         </div>
       )}
