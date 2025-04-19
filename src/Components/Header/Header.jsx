@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router";
-import "./Header.css";
-import SignIn from "../SignIn/SignIn"; // Adjust the path to where your SignIn component is located
+import SignIn from "../SignIn/SignIn";
+import "./Header.css"
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [showSignIn, setShowSignIn] = useState(false);  // State to toggle Sign In visibility
-  const [showSignUp, setShowSignUp] = useState(false);  // State to toggle Sign Up visibility
+  const [showSignIn, setShowSignIn] = useState(false);
+  const [showSignUp, setShowSignUp] = useState(false);
 
   const navLinks = (
     <>
@@ -23,7 +23,7 @@ const Header = () => {
           setShowSignIn(true);
           setShowSignUp(false);
         }}
-        className="w-fit text-base font-medium py-2 px-4 bg-[#23BE0A] text-white rounded-lg"
+        className="text-base font-medium py-2 px-4 bg-[#23BE0A] text-white rounded-lg"
       >
         Sign In
       </button>
@@ -32,7 +32,7 @@ const Header = () => {
           setShowSignUp(true);
           setShowSignIn(false);
         }}
-        className="w-fit text-base font-medium py-2 px-4 bg-[#59C6D2] text-white rounded-lg"
+        className="text-base font-medium py-2 px-4 bg-[#00a6f4] text-white rounded-lg"
       >
         Sign Up
       </button>
@@ -42,7 +42,6 @@ const Header = () => {
   return (
     <div className="w-full bg-[#ffffff] mx-auto mb-6">
       <div className="md:container mx-auto py-6 px-4 flex justify-between items-center">
-        {/* Left side - Logo & Hamburger */}
         <div className="flex items-center gap-4">
           <div className="lg:hidden">
             <button onClick={() => setMenuOpen(!menuOpen)} className="focus:outline-none">
@@ -56,36 +55,35 @@ const Header = () => {
           <a className="text-2xl font-bold">Book Vibe</a>
         </div>
 
-        {/* Desktop nav links */}
         <div className="nav hidden md:flex gap-6 items-center">
           {navLinks}
         </div>
 
-        {/* Desktop Auth Buttons */}
         <div className="hidden lg:flex items-center gap-4">
           {authButtons}
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu */}
       {menuOpen && (
         <div className="nav lg:hidden px-4 pb-4 flex flex-col gap-2">
-          <div className="shadow p-6 w-fit">
-            <div className="md:hidden flex flex-col gap-2">
-              {navLinks}
-            </div>
-            <div className="md:mt-0 mt-2 flex gap-2">
-              {authButtons}
-            </div>
+          <div className="shadow rounded-lg p-6 w-fit">
+            <div className="md:hidden flex flex-col gap-2">{navLinks}</div>
+            <div className="md:mt-0 mt-2 flex gap-2">{authButtons}</div>
           </div>
         </div>
       )}
 
-      {/* Show the Sign In or Sign Up Form based on button click */}
-      {showSignIn && <SignIn />}
-      {showSignUp && <SignIn isSignUp={true} />} {/* Pass a prop to switch between SignIn and SignUp views */}
+      <SignIn
+        isOpen={showSignIn || showSignUp}
+        isSignUp={showSignUp}
+        onClose={() => {
+          setShowSignIn(false);
+          setShowSignUp(false);
+        }}
+      />
     </div>
   );
 };
 
 export default Header;
+``
