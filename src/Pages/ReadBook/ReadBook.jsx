@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 const ReadBook = ({ book }) => {
     return (
-          <div className="flex flex-col md:flex-row bg-white rounded-3xl shadow-sm overflow-hidden transition-shadow duration-300 hover:shadow-md my-8 border border-[#13131315] p-4">
+        <div className="flex flex-col md:flex-row bg-white rounded-3xl shadow-sm overflow-hidden transition-shadow duration-300 hover:shadow-md my-8 border border-[#13131315] p-4">
             <div className="w-full md:w-60 bg-gray-50 p-6 flex items-center justify-center rounded-2xl">
                 <div className="w-full h-full max-h-[200px] max-w-[200px] flex items-center justify-center">
                 <img

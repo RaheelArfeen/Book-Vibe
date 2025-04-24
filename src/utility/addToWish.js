@@ -13,7 +13,7 @@ function getWishBook() {
   
     if (wishBookData.includes(id)) {
       Swal.fire({
-        icon: "error",
+        icon: "info",
         title: "Oops...",
         text: "You have this item already in you wish list"
       });
