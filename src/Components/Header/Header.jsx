@@ -23,7 +23,7 @@ const Header = () => {
           setShowSignIn(true);
           setShowSignUp(false);
         }}
-        className="text-base font-medium py-2 px-4 bg-[#23BE0A] text-white rounded-lg"
+        className="text-base font-medium py-2 px-4 bg-[#23BE0A] text-white rounded-lg cursor-pointer"
       >
         Sign In
       </button>
@@ -32,7 +32,7 @@ const Header = () => {
           setShowSignUp(true);
           setShowSignIn(false);
         }}
-        className="text-base font-medium py-2 px-4 bg-[#00a6f4] text-white rounded-lg"
+        className="text-base font-medium py-2 px-4 bg-[#00a6f4] text-white rounded-lg cursor-pointer"
       >
         Sign Up
       </button>

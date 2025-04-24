@@ -6,6 +6,7 @@ import { useLoaderData } from "react-router";
 import ReadBook from "../ReadBook/ReadBook";
 import { getWishBook } from "../../utility/addToWish";
 import WishBook from "../WishBook/WishBook";
+import { Helmet } from "react-helmet-async";
 
 const ReadList = () => {
     const [readList, setReadList] = useState([]);
@@ -67,6 +68,9 @@ const ReadList = () => {
 
     return (
         <div className="md:container mx-auto md:p-0 p-4 grow">
+            <Helmet>
+                <title>Listed Books | Book Vibe</title>
+            </Helmet>
             <div className="text-center bg-[#f3f3f3] rounded-2xl text-5xl font-bold py-14 mb-6">
                 <h1>Books</h1>
             </div>
